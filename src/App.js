@@ -6,29 +6,22 @@ class App extends Component {
 
   state = {
     persons: [
-      { name: 'Daniel', age: 36 },
-      { name: 'Danielle', age: 29 },
-      { name: 'Israel', age: 33 }
+      { id: '1', name: 'Daniel', age: 36 },
+      { id: '2', name: 'Danielle', age: 29 },
+      { id: '3', name: 'Israel', age: 33 }
     ],
     otherState: 'some other value',
     showPersons: false
   }
 
 
-  switchNameHandler = (newName) => {
-    //console.log('was clicked');
-    //DON'T DO THIS: this.state.persons[0].name = 'Salgado';
-    this.setState(
-      {
-        persons: [
-          { name: newName, age: 36 },
-          { name: 'Danielle', age: 29 },
-          { name: 'Israel', age: 5 }
-        ]
+  deletePersonHandler = (personIndex) => {
 
-      }
+    //const persons = this.state.persons.slice(); //Copy the original array or
+    const persons = [...this.state.persons];
+    persons.splice(personIndex,1);
+    this.setState({persons:persons});
 
-    )
   }
 
   changeNameHandler = (event) => {
@@ -73,20 +66,20 @@ class App extends Component {
 
       persons = (
         <div>
-          <Person
-            name={this.state.persons[0].name}
-            age={this.state.persons[0].age} />
-          <Person
-            name={this.state.persons[1].name}
-            age={this.state.persons[1].age}
-            click={this.switchNameHandler.bind(this, "Sal")}
-            change={this.changeNameHandler} />
-          <Person
-            name={this.state.persons[2].name}
-            age={this.state.persons[2].age} />
+
+          {this.state.persons.map((person, index) => {
+
+            return <Person 
+            name={person.name} 
+            age={person.age} 
+            click={() => this.deletePersonHandler(index)}
+            key={person.id}
+            />
+
+          })}
+
         </div>
       );
-      
     }
 
     return (
