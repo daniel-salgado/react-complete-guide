@@ -56,9 +56,11 @@ class App extends Component {
       border: '1x solid blue',
       padding: '8px',
       cursor: 'pointer'
+    
     }
 
     return (
+      
       <div className="App">
         <h1>Hey</h1>
         <p>This is really working!</p>
