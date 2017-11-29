@@ -19,23 +19,23 @@ class App extends Component {
 
     //const persons = this.state.persons.slice(); //Copy the original array or
     const persons = [...this.state.persons];
-    persons.splice(personIndex,1);
-    this.setState({persons:persons});
+    persons.splice(personIndex, 1);
+    this.setState({ persons: persons });
 
   }
 
-  changeNameHandler = (event) => {
-    this.setState(
-      {
-        persons: [
-          { name: 'Daniel', age: 36 },
-          { name: event.target.value, age: 29 },
-          { name: 'Israel', age: 5 }
-        ]
+  changeNameHandler = (event, id) => {
 
-      }
+    const persons = [...this.state.persons];
+    
+    const personIndex = this.state.persons.findIndex(p => { return p.id === id });
+    const person = { ...persons[personIndex] };
 
-    )
+    person.name = event.target.value;
+    persons[personIndex] = person;
+
+    this.setState({ persons: persons });
+
   }
 
   //<button onClick={this.switchNameHandler.bind(this, 'Salgado')}>Switch Name</button>
@@ -69,11 +69,12 @@ class App extends Component {
 
           {this.state.persons.map((person, index) => {
 
-            return <Person 
-            name={person.name} 
-            age={person.age} 
-            click={() => this.deletePersonHandler(index)}
-            key={person.id}
+            return <Person
+              name={person.name}
+              age={person.age}
+              click={() => this.deletePersonHandler(index)}
+              key={person.id}
+              change={(event) => this.changeNameHandler(event, person.id)}
             />
 
           })}
