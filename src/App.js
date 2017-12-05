@@ -27,7 +27,7 @@ class App extends Component {
   changeNameHandler = (event, id) => {
 
     const persons = [...this.state.persons];
-    
+
     const personIndex = this.state.persons.findIndex(p => { return p.id === id });
     const person = { ...persons[personIndex] };
 
