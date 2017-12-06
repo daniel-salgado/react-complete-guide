@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
-import Radium from 'radium';
+//import Radium, { StyleRoot } from 'radium'; // Removed to see another way of styling
 
 class App extends Component {
 
@@ -90,7 +90,7 @@ class App extends Component {
 
       style.backgroundColor = 'red';
 
-      style[':hover']= {
+      style[':hover'] = {
         backgroundColor: 'lightgreen',
         color: 'black'
       };
@@ -109,19 +109,20 @@ class App extends Component {
     }
 
     return (
+      //<StyleRoot>
+        <div className="App">
+          <h1>Hey</h1>
+          <p className={classes.join(' ')}>This is really working!</p>
+          <button
+            style={style}
+            //onClick={() => this.switchNameHandler('Salgado!!')}>Switch Name</button>
+            onClick={this.togglePersonsHandler}>Toggle Persons</button>
 
-      <div className="App">
-        <h1>Hey</h1>
-        <p className={classes.join(' ')}>This is really working!</p>
-        <button
-          style={style}
-          //onClick={() => this.switchNameHandler('Salgado!!')}>Switch Name</button>
-          onClick={this.togglePersonsHandler}>Toggle Persons</button>
-
-        {persons}
+          {persons}
 
 
-      </div>
+        </div>
+      //</StyleRoot>
     );
 
     //return React.createElement('div',{className:'App'}, React.createElement('h1', null, 'Hey'));
@@ -129,4 +130,5 @@ class App extends Component {
   }
 }
 
-export default Radium(App);
+//export default Radium(App);
+export default App;
