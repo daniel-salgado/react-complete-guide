@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
+//import './App.css';
+import classes from './App.css';
 import Person from './Person/Person';
 //import Radium, { StyleRoot } from 'radium'; // Removed to see another way of styling
 
@@ -58,7 +59,7 @@ class App extends Component {
       font: 'inherit',
       border: '1x solid blue',
       padding: '8px',
-      cursor: 'pointer',
+      cursor: 'pointer'
       /*':hover': {
         backgroundColor: 'lightgreen',
         color: 'black'
@@ -99,29 +100,29 @@ class App extends Component {
 
     //Dinamic CSS classes
     //let classes = ['red', 'bold'].join(' ');
-    let classes = [];
+    let assignedClasses = [];
 
     if (this.state.persons.length <= 2) {
-      classes.push('red');
+      assignedClasses.push(classes.red);
     }
     if (this.state.persons.length <= 1) {
-      classes.push('bold');
+      assignedClasses.push(classes.bold);
     }
 
     return (
       //<StyleRoot>
-        <div className="App">
-          <h1>Hey</h1>
-          <p className={classes.join(' ')}>This is really working!</p>
-          <button
-            style={style}
-            //onClick={() => this.switchNameHandler('Salgado!!')}>Switch Name</button>
-            onClick={this.togglePersonsHandler}>Toggle Persons</button>
+      <div className={classes.App}>
+        <h1>Hey</h1>
+        <p className={assignedClasses.join(' ')}>This is really working!</p>
+        <button
+          style={style}
+          //onClick={() => this.switchNameHandler('Salgado!!')}>Switch Name</button>
+          onClick={this.togglePersonsHandler}>Toggle Persons</button>
 
-          {persons}
+        {persons}
 
 
-        </div>
+      </div>
       //</StyleRoot>
     );
 
