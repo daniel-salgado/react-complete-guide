@@ -59,10 +59,10 @@ class App extends Component {
       border: '1x solid blue',
       padding: '8px',
       cursor: 'pointer',
-      ':hover': {
+      /*':hover': {
         backgroundColor: 'lightgreen',
         color: 'black'
-      }
+      }*/
 
     }
 
@@ -90,10 +90,10 @@ class App extends Component {
 
       style.backgroundColor = 'red';
 
-      style[':hover'] = {
+      /*style[':hover'] = {
         backgroundColor: 'lightgreen',
         color: 'black'
-      };
+      };*/
 
     }
 
