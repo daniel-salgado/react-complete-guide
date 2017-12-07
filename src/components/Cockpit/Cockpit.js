@@ -10,7 +10,6 @@ const cockpit = (props) => {
         btnClass = classes.Red;
     }
 
-    btnClass = classes.Red;
 
     if (props.persons.length <= 2) {
         assignedClasses.push(classes.red);
@@ -20,8 +19,8 @@ const cockpit = (props) => {
     }
 
     return (
-        <div className={classes.cockpit}>
-            <h1>Hey</h1>
+        <div className={classes.Cockpit}>
+            <h1>{props.appTitle}</h1>
             <p className={assignedClasses.join(' ')}>This is really working!</p>
             <button
                 //style={style}
