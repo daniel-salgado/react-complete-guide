@@ -1,3 +1,4 @@
+//Only use ErrorBoundary when it is possible to occors an error like a web api call
 import React, { Component } from 'react';
 
 class ErrorBoundary extends Component {

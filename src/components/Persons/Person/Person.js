@@ -12,11 +12,11 @@ const person = (props) => {
 
     };*/
 
-    const rnd = Math.random();
+    const rnd = 0;//Math.random();
 
     if (rnd > 0.7) {
         throw new Error('Something went wrong');
-    }
+    };
 
     return (
 
@@ -26,7 +26,7 @@ const person = (props) => {
             <input type="text" onChange={props.change} value={props.name} />
         </div>
 
-    )
+    );
 
 };
 
