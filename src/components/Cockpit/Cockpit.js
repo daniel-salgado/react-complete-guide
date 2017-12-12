@@ -1,13 +1,15 @@
 import React from 'react';
 import classes from './Cockpit.css';
+import Aux from '../../hoc/Aux';
 
 const cockpit = (props) => {
 
     let assignedClasses = [];
-    let btnClass = '';
+    let btnClass = classes.Button;
 
     if (props.showPersons) {
-        btnClass = classes.Red;
+        //btnClass = classes.Red;
+        btnClass = [classes.Button, classes.Red].join(' ');
     }
 
 
@@ -19,7 +21,8 @@ const cockpit = (props) => {
     }
 
     return (
-        <div className={classes.Cockpit}>
+        //<div className={classes.Cockpit}>
+        <Aux>
             <h1>{props.appTitle}</h1>
             <p className={assignedClasses.join(' ')}>This is really working!</p>
             <button
@@ -27,7 +30,8 @@ const cockpit = (props) => {
                 //onClick={() => this.switchNameHandler('Salgado!!')}>Switch Name</button>
                 className={btnClass}
                 onClick={props.clicked}>Toggle Persons</button>
-        </div>
+        </Aux>
+        //</div>
     );
 };
 
