@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 //import './Person.css'
 import classes from './Person.css'
 //import WithClass from '../../../hoc/WithClass';
-import withClass from '../../../hoc/withClass';
+import withClass from '../../../hoc/WithClass';
 import Auxiliary from '../../../hoc/Auxiliary';
 
 class Person extends Component {
